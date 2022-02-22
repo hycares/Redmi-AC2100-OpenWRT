@@ -95,7 +95,56 @@ OpenWRT烧写完成后用浏览器访问`192.168.1.1`进入管理界面，默认
 
 ## 安装插件
 
+通过opkg工具在命令行中安装插件，有些插件存在依赖，在安装前建议执行：
+
+```shell
+opkg update
+```
+
 ### scutclient
+
+这是某学校的有线网连接[客户端](https://github.com/scutclient/scutclient):(，没有提供编译好的package得手动编译，如果不想编译可以[点击下载](./assets/ipk/scutclient_3.1.3-1_mipsel_24kc.ipk)，但是得架构和版本一致才能直接安装。
+
+```txt
+$ cat /etc/openwrt_release
+DISTRIB_ID='OpenWrt'
+DISTRIB_RELEASE='21.02.1'
+DISTRIB_REVISION='r16325-88151b8303'
+DISTRIB_TARGET='ramips/mt7621'
+DISTRIB_ARCH='mipsel_24kc'
+DISTRIB_DESCRIPTION='OpenWrt 21.02.1 r16325-88151b8303'
+DISTRIB_TAINTS=''
+
+```
+
+如果不一样就手动编译:)
+
+按照文档给的步骤得先准备SDK，OpenWRT的版本有很多得找到符合当前目标的SDK才行，[在这找到对应版本](https://downloads.openwrt.org/)。根据DISTRIB_RELEASE和DISTRIB_TARGET找到对应[SDK](https://downloads.openwrt.org/releases/21.02.1/targets/ramips/mt7621/)
+
+![image-20220222194510688](assets/img/image-20220222194510688.png)
+
+按照步骤进行编译：
+
+```shell
+wget https://downloads.openwrt.org/releases/21.02.1/targets/ramips/mt7621/openwrt-sdk-21.02.1-ramips-mt7621_gcc-8.4.0_musl.Linux-x86_64.tar.xz
+
+tar -Jxvf openwrt-sdk-21.02.1-ramips-mt7621_gcc-8.4.0_musl.Linux-x86_64.tar.xz
+
+cd openwrt-sdk-21.02.1-ramips-mt7621_gcc-8.4.0_musl.Linux-x86_64/
+mkdir package/scutclient
+cp {SCUTCLIENT_SRC_DIR}/openwrt/Makefile package/scutclient
+
+make defconfig
+make package/scutclient/compile V=s
+```
+
+生成的文件存放在`bin`目录下:
+
+![image-20220222195007213](assets/img/image-20220222195007213.png)
+
+上传到路由器使用`opkg install`安装即可。
+
+![image-20220222195233311](assets/img/image-20220222195233311.png)
 
 ### OpenClash
 
