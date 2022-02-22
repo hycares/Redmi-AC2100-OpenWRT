@@ -24,13 +24,13 @@ Breed是一个第三方的启动引导工具，刷入此工具后我们能够通
 
 ### 1. 下载对应固件
 
-[ac2100 breed](https://breed.hackpascal.net/breed-mt7621-xiaomi-r3g.bin)
+[点击下载 ac2100 breed](https://breed.hackpascal.net/breed-mt7621-xiaomi-r3g.bin)
 
 ### 2. 降级路由器当前固件
 
 为了将breed固件写入路由器，我们需要上传固件并且烧写，这需要登录进路由器，低版本的固件存在一些漏洞（2.0.7）。
 
-在路由器管理页面手动降级到对应[版本固件](./assets/2.0.7/miwifi_rm2100_firmware_d6234_2.0.7.bin)后，等待重启。
+在路由器管理页面手动降级到对应[版本固件 点击下载](./assets/2.0.7/miwifi_rm2100_firmware_d6234_2.0.7.bin)后，等待重启。
 
 ### 3. 开启ssh
 
@@ -59,21 +59,23 @@ http://192.168.31.1/cgi-bin/luci/;stok=<STOK>/api/misystem/set_config_iotdev?bss
 
 ### 4. 刷入breed
 
-ssh登录路由器后，将第一步得到的固件上传到路由器后执行下述代码：
+ssh登录路由器后，将第一步得到的固件上传到路由器`/tmp`目录后执行下述代码：
 
 ```shell
-mtd -r write <YOURPATHTO>/breed-mt7621-xiaomi-r3g.bin Bootloader
+mtd -r write /tmp/breed-mt7621-xiaomi-r3g.bin Bootloader
 ```
 
 ### 5. 进入breed控制台
 
 如果电脑重新获取到IP后说明刷写完成并且breed引导了官方固件，断电。按住reset键（背面圆孔，用取卡针插进去）后插电等待system的蓝灯闪烁后松开reset键。
 
-用浏览器访问`192.168.1.1`进入breed恢复界面，点击固件更新即可上传自己的固件。
+用浏览器访问`192.168.1.1`进入breed恢复界面，更改环境变量，新增字段"xiaomi.r3g.bootfw", 值设置为 2,然后保存。
+
+点击固件更新即可上传自己的固件。
 
 ## 刷入OpenWRT
 
-准备OpenWRT的[固件](https://downloads.openwrt.org/releases/21.02.2/targets/ramips/mt7621/openwrt-21.02.2-ramips-mt7621-xiaomi_redmi-router-ac2100-initramfs-kernel.bin)，也可以找其他的版本，通过breed上传该固件，点击更新并等待路由器重启，这里建议用有线连接电脑，测试时该固件烧入后不会开启WIFI。
+准备OpenWRT的[固件 点击下载](https://downloads.openwrt.org/releases/21.02.2/targets/ramips/mt7621/openwrt-21.02.2-ramips-mt7621-xiaomi_redmi-router-ac2100-initramfs-kernel.bin)，也可以找其他的版本，通过breed上传该固件，点击更新并等待路由器重启，这里建议用有线连接电脑，测试时该固件烧入后不会开启WIFI。
 
 ![image-20220222185832288](assets/img/image-20220222185832288.png)
 
@@ -85,9 +87,9 @@ OpenWRT烧写完成后用浏览器访问`192.168.1.1`进入管理界面，默认
 
 ![image-20220222190608778](assets/img/image-20220222190608778.png)
 
-点击导航栏的[`System`的`Backup/Flash Firmware`](http://192.168.1.1/cgi-bin/luci/admin/system/flash)点击最下方的Flash image刷入[升级包](https://downloads.openwrt.org/releases/21.02.2/targets/ramips/mt7621/openwrt-21.02.2-ramips-mt7621-xiaomi_redmi-router-ac2100-squashfs-sysupgrade.bin)，等待重启。
+点击导航栏的[`System`的`Backup/Flash Firmware 点击跳转`](http://192.168.1.1/cgi-bin/luci/admin/system/flash)点击最下方的Flash image刷入[升级包](https://downloads.openwrt.org/releases/21.02.2/targets/ramips/mt7621/openwrt-21.02.2-ramips-mt7621-xiaomi_redmi-router-ac2100-squashfs-sysupgrade.bin)，等待重启。
 
-在[Network中点击Wireless](http://192.168.1.1/cgi-bin/luci/admin/network/wireless)启用WIFI
+在[Network中点击Wireless 点击跳转](http://192.168.1.1/cgi-bin/luci/admin/network/wireless)启用WIFI
 
 ![image-20220222191106039](assets/img/image-20220222191106039.png)
 
