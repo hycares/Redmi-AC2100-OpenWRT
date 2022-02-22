@@ -116,7 +116,6 @@ DISTRIB_TARGET='ramips/mt7621'
 DISTRIB_ARCH='mipsel_24kc'
 DISTRIB_DESCRIPTION='OpenWrt 21.02.1 r16325-88151b8303'
 DISTRIB_TAINTS=''
-
 ```
 
 如果不一样就手动编译:)
@@ -150,7 +149,13 @@ make package/scutclient/compile V=s
 
 ### OpenClash
 
+仓库地址：[OpenClash](https://github.com/vernesong/OpenClash)
+
+按照wiki进行配置，下载clash core时选择[clash-linux-mipsle-softfloat.tar.gz](https://github.com/vernesong/OpenClash/releases/download/Clash/clash-linux-mipsle-softfloat.tar.gz)
+
 ### V2ray
+
+
 
 ## 参考
 
