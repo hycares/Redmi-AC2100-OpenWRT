@@ -93,6 +93,8 @@ OpenWRT烧写完成后用浏览器访问`192.168.1.1`进入管理界面，默认
 
 ![image-20220222191106039](assets/img/image-20220222191106039.png)
 
+上述使用的是官方提供的固件，这个是网络上找到的[升级固件](./assets/sysupgrade/openwrt-ramips-mt7621-xiaomi_redmi-router-ac2100-squashfs-sysupgrade.bin)，该固件提供了许多功能比如广告清理，ssr等，不想折腾可以直接使用这个升级固件。
+
 ## 安装插件
 
 通过opkg工具在命令行中安装插件，有些插件存在依赖，在安装前建议执行：
@@ -147,6 +149,8 @@ make package/scutclient/compile V=s
 ![image-20220222195233311](assets/img/image-20220222195233311.png)
 
 ### OpenClash
+
+### V2ray
 
 ## 参考
 
