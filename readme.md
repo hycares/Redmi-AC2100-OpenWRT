@@ -151,11 +151,27 @@ make package/scutclient/compile V=s
 
 仓库地址：[OpenClash](https://github.com/vernesong/OpenClash)
 
-按照wiki进行配置，下载clash core时选择[clash-linux-mipsle-softfloat.tar.gz](https://github.com/vernesong/OpenClash/releases/download/Clash/clash-linux-mipsle-softfloat.tar.gz)
+按照wiki进行配置，ac2100下载clash core时选择[clash-linux-mipsle-softfloat.tar.gz](https://github.com/vernesong/OpenClash/releases/download/Clash/clash-linux-mipsle-softfloat.tar.gz)
 
-### V2ray
+设置订阅地址启动即可，可能要等一段时间才会刷新界面
 
+![image-20220222202307793](assets/img/image-20220222202307793.png)
 
+启动之前：
+
+![image-20220222202104887](assets/img/image-20220222202104887.png)
+
+启动之后：
+
+![image-20220222202449409](assets/img/image-20220222202449409.png)
+
+### v2ray
+
+clash消耗的资源非常多，可以直接配置v2ray，仓库地址：[luci-app-v2ray](https://github.com/kuoruan/luci-app-v2ray)
+
+按照readme进行安装即可，主要配置在outbound中，设置好v2ray的一些参数
+
+![image-20220222201945382](assets/img/image-20220222201945382.png)
 
 ## 参考
 
