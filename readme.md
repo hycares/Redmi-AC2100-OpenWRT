@@ -87,7 +87,7 @@ OpenWRT烧写完成后用浏览器访问`192.168.1.1`进入管理界面，默认
 
 点击导航栏的[`System`的`Backup/Flash Firmware`](http://192.168.1.1/cgi-bin/luci/admin/system/flash)点击最下方的Flash image刷入[升级包](https://downloads.openwrt.org/releases/21.02.2/targets/ramips/mt7621/openwrt-21.02.2-ramips-mt7621-xiaomi_redmi-router-ac2100-squashfs-sysupgrade.bin)，等待重启。
 
-在Network中点击Wireless启用WIFI
+在[Network中点击Wireless](http://192.168.1.1/cgi-bin/luci/admin/network/wireless)启用WIFI
 
 ![image-20220222191106039](assets/img/image-20220222191106039.png)
 
@@ -96,4 +96,8 @@ OpenWRT烧写完成后用浏览器访问`192.168.1.1`进入管理界面，默认
 ### scutclient
 
 ### OpenClash
+
+## 参考
+
+[恩山大佬提供的开启SSH方法](https://www.right.com.cn/forum/thread-4032490-1-1.html)
 
